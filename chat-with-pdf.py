@@ -33,7 +33,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True # Allows the HTML code to be displayed
     )
-add_bg_from_local('page.png')    # Calls the function to add the background image
+#add_bg_from_local('page.png')    # Calls the function to add the background image
 st.sidebar.title("Give me the PDF to learn") # Title of the sidebar
 upload=st.sidebar.file_uploader("Upload your PDF",type=['pdf']) # File uploader
 if upload is not None:
@@ -47,8 +47,8 @@ if upload is not None:
 
 # os.environ['OPENAI_API_KEY']
 
-model=OpenAI(openai_api_key=os.getenv("OPENAI_API_KEY"),model="gpt-3.5-turbo") # Model to be used for the bot. You can change it to any other model from the list of models supported by OpenAI to get different results.
-emb=OpenAIEmbeddings()  # Embeddings to be used for the bot.
+model=OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],model="gpt-3.5-turbo") # Model to be used for the bot. You can change it to any other model from the list of models supported by OpenAI to get different results.
+emb=OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])  # Embeddings to be used for the bot.
 load=PyPDFLoader(tpath) # Loader to load the PDF file
 pages=load.load()      # Loads the PDF file
 splitter=TokenTextSplitter(chunk_size=1000,chunk_overlap=0)
@@ -64,7 +64,7 @@ vectDB = Chroma.from_documents(split_data,
 vectDB.persist()      # Persists the vector database
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True) # Creates a memory for the bot to remember the conversation
 chatQA = ConversationalRetrievalChain.from_llm(
-            OpenAI(openai_api_key=os.getenv("OPENAI_API_KEY"),
+            OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],
                temperature=0, model_name="gpt-3.5-turbo"), 
             vectDB.as_retriever(), 
             memory=memory)               # Creates the bot
