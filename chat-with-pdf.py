@@ -17,7 +17,7 @@ import chromadb
 from langchain.text_splitter import TokenTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
-st.title("📄 Pdf2Bot 🤖") # Title of the app
+st.title("📄 Chat and Listen PDF 🤖") # Title of the app
 st.write("I will build a conversational AI bot right on the fly from the PDF provided by you. Just upload the PDF and I will learn from it. Then you can ask me anything and I will answer you.")
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
@@ -73,7 +73,7 @@ chat_history=[]
 prompt=st.text_input("Enter your prompt")      # Takes the prompt from the user
 if prompt:
         with st.spinner('Generating response...'):                   
-            response = chatQA({"question": prompt,"chat_history":chat_history}, return_only_outputs=True) # Generates the response from the bot
+            response = chatQA({"question": prompt+"limit your answer to less than 50 words" ,"chat_history":chat_history}, return_only_outputs=True) # Generates the response from the bot
             answer = response['answer']
             st.write(answer)        # Displays the response
             myobj = gTTS(text=answer,lang='en', slow=False)     # Converts the response to speech
