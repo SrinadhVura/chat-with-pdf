@@ -46,32 +46,32 @@ if upload is not None:
 
 # os.environ['OPENAI_API_KEY']
 
-model=OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],model="gpt-3.5-turbo") # Model to be used for the bot. You can change it to any other model from the list of models supported by OpenAI to get different results.
-emb=OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])  # Embeddings to be used for the bot.
-load=PyPDFLoader(tpath) # Loader to load the PDF file
-pages=load.load()      # Loads the PDF file
-splitter=TokenTextSplitter(chunk_size=1000,chunk_overlap=0)
-split_data=splitter.split_documents(pages)    # Splits the PDF file into chunks of 1000 tokens each
-vectDB = FAISS.from_documents(split_data,
-                      emb,
-                      )              # Creates the vector database from the PDF file and stores it in the local directory
-memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True) # Creates a memory for the bot to remember the conversation
-chatQA = ConversationalRetrievalChain.from_llm(
-            OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],
-               temperature=0, model_name="gpt-3.5-turbo"), 
-            vectDB.as_retriever(), 
-            memory=memory)               # Creates the bot
-
-chat_history=[]
-prompt=st.text_input("Enter your prompt")      # Takes the prompt from the user
-if prompt:
-        with st.spinner('Generating response...'):                   
-            response = chatQA({"question": prompt+"limit your answer to less than 50 words" ,"chat_history":chat_history}, return_only_outputs=True) # Generates the response from the bot
-            answer = response['answer']
-            st.write(answer)        # Displays the response
-            myobj = gTTS(text=answer,lang='en', slow=False)     # Converts the response to speech
-            mp3_play=BytesIO()         # Creates a BytesIO object
-            myobj.write_to_fp(mp3_play)
-            st.audio(mp3_play,format="audio/mp3")      # Plays the audio
-else:
-            st.warning('Please enter your prompt')
+    model=OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],model="gpt-3.5-turbo") # Model to be used for the bot. You can change it to any other model from the list of models supported by OpenAI to get different results.
+    emb=OpenAIEmbeddings(openai_api_key=st.secrets["OPENAI_API_KEY"])  # Embeddings to be used for the bot.
+    load=PyPDFLoader(tpath) # Loader to load the PDF file
+    pages=load.load()      # Loads the PDF file
+    splitter=TokenTextSplitter(chunk_size=1000,chunk_overlap=0)
+    split_data=splitter.split_documents(pages)    # Splits the PDF file into chunks of 1000 tokens each
+    vectDB = FAISS.from_documents(split_data,
+                          emb,
+                          )              # Creates the vector database from the PDF file and stores it in the local directory
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True) # Creates a memory for the bot to remember the conversation
+    chatQA = ConversationalRetrievalChain.from_llm(
+                OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],
+                   temperature=0, model_name="gpt-3.5-turbo"), 
+                vectDB.as_retriever(), 
+                memory=memory)               # Creates the bot
+    
+    chat_history=[]
+    prompt=st.text_input("Enter your prompt")      # Takes the prompt from the user
+    if prompt:
+            with st.spinner('Generating response...'):                   
+                response = chatQA({"question": prompt+"limit your answer to less than 50 words" ,"chat_history":chat_history}, return_only_outputs=True) # Generates the response from the bot
+                answer = response['answer']
+                st.write(answer)        # Displays the response
+                myobj = gTTS(text=answer,lang='en', slow=False)     # Converts the response to speech
+                mp3_play=BytesIO()         # Creates a BytesIO object
+                myobj.write_to_fp(mp3_play)
+                st.audio(mp3_play,format="audio/mp3")      # Plays the audio
+    else:
+                st.warning('Please enter your prompt')
