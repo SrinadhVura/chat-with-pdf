@@ -194,11 +194,11 @@ html_css_login = """
 """
 html_button_login = (
     html_css_login
-    + f"<a href='{login_link}' class='button-login' target='_parent'>Log In</a>"
+    + f"<a href='{login_link}' class='button-login' >Log In</a>"
 )
 html_button_logout = (
     html_css_login
-    + f"<a href='{logout_link}' class='button-login' target='_parent'>Log Out</a>"
+    + f"<a href='{logout_link}' class='button-login' >Log Out</a>"
 )
 def button_login():
     """
