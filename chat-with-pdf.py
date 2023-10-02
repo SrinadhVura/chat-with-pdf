@@ -232,13 +232,16 @@ st.write("I will build a conversational AI bot right on the fly from the PDF pro
 # st.set_page_config(page_icon="🤖")
 set_st_state_vars()
 #Adding buttons
-if st.session_state["authenticated"]:
-    button_logout()
-else:
+# if st.session_state["authenticated"]:
+#     button_logout()
+# else:
+#     button_login()
+if not st.session_state["authenticated"]:
     button_login()
 if  (st.session_state["authenticated"]):
     st.sidebar.title("Give me the PDF to learn") # Title of the sidebar
     upload=st.sidebar.file_uploader("Upload your PDF",type=['pdf']) # File uploader
+    button_logout()
     if upload is not None:
         tdir=tempfile.TemporaryDirectory()  # Temporary directory to store the uploaded file
         tpath=os.path.join(tdir.name,'file.pdf') 
