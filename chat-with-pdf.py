@@ -13,7 +13,6 @@ from gtts import gTTS
 from io import BytesIO
 from pygame import mixer
 import tiktoken
-import chromadb
 from langchain.text_splitter import TokenTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
