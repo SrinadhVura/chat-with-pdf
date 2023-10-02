@@ -229,7 +229,7 @@ def add_bg_from_local(image_file):
 #add_bg_from_local('page.png')    # Calls the function to add the background image
 st.title("📄 Chat and Listen PDF 🤖") # Title of the app
 st.write("I will build a conversational AI bot right on the fly from the PDF provided by you. Just upload the PDF and I will learn from it. Then you can ask me anything and I will answer you.")
-st.set_page_config(page_icon="🤖")
+# st.set_page_config(page_icon="🤖")
 set_st_state_vars()
 #Adding buttons
 if st.session_state["authenticated"]:
