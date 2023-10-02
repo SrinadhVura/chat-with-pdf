@@ -53,15 +53,9 @@ load=PyPDFLoader(tpath) # Loader to load the PDF file
 pages=load.load()      # Loads the PDF file
 splitter=TokenTextSplitter(chunk_size=1000,chunk_overlap=0)
 split_data=splitter.split_documents(pages)    # Splits the PDF file into chunks of 1000 tokens each
-collection_name='CC_collection'     # Name of the collection
-local_directory = "CC_dir"         # Directory to store the collection
-persist_directory = os.path.join(os.getcwd(), local_directory)
-vectDB = Chroma.from_documents(split_data,
+vectDB = FAISS.from_documents(split_data,
                       emb,
-                      collection_name=collection_name,
-                      persist_directory=persist_directory
                       )              # Creates the vector database from the PDF file and stores it in the local directory
-vectDB.persist()      # Persists the vector database
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True) # Creates a memory for the bot to remember the conversation
 chatQA = ConversationalRetrievalChain.from_llm(
             OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"],
