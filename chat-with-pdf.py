@@ -236,7 +236,7 @@ if st.session_state["authenticated"]:
     button_logout()
 else:
     button_login()
-if  (st.session_state["authenticated"] and "Underwriters" in st.session_state["user_cognito_groups"]):
+if  (st.session_state["authenticated"]):
     st.sidebar.title("Give me the PDF to learn") # Title of the sidebar
     upload=st.sidebar.file_uploader("Upload your PDF",type=['pdf']) # File uploader
     if upload is not None:
