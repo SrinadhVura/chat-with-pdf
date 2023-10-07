@@ -227,7 +227,7 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True # Allows the HTML code to be displayed
     )
 #add_bg_from_local('page.png')    # Calls the function to add the background image
-st.set_page_config(page_title="Chat and Listen PDF",page_icon="iconch.png",layout="wide")
+st.set_page_config(page_title="Chat and Listen PDF",page_icon="iconch.png",layout="wide",initial_sidebar_state="expanded")
 img=Image.open("chat and listen pdf.png")
 st.image(img)
 st.title("📄 Chat and Listen PDF 🤖") # Title of the app
