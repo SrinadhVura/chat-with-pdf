@@ -227,8 +227,10 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True # Allows the HTML code to be displayed
     )
 #add_bg_from_local('page.png')    # Calls the function to add the background image
-st.set_page_config(page_title="📄 Chat and Listen PDF 🤖",page_icon="iconch.png",layout="wide")
-# st.title("📄 Chat and Listen PDF 🤖") # Title of the app
+st.set_page_config(page_title="Chat and Listen PDF",page_icon="iconch.png",layout="wide")
+img=Image.open("chat and listen pdf.png")
+st.image(img)
+st.title("📄 Chat and Listen PDF 🤖") # Title of the app
 st.write("I will build a conversational AI bot right on the fly from the PDF provided by you. Just upload the PDF and I will learn from it. Then you can ask me anything and I will answer you.")
 # st.set_page_config(page_icon="🤖")
 set_st_state_vars()
