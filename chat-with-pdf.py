@@ -231,7 +231,7 @@ st.set_page_config(page_title="Chat and Listen PDF",page_icon="iconch.png",layou
 img=Image.open("chat and listen pdf.png")
 st.image(img)
 st.title("📄 Chat and Listen PDF 🤖") # Title of the app
-st.write("I will build a conversational AI bot right on the fly from the PDF provided by you. Just upload the PDF and I will learn from it. Then you can ask me anything and I will answer you.")
+st.write("I will build a conversational AI bot right on the fly from the PDF provided by you. Just upload the PDF and I will learnit. I can answer all your questions in a chiffy. I can speak out your answers too")
 # st.set_page_config(page_icon="🤖")
 set_st_state_vars()
 #Adding buttons
