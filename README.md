@@ -48,14 +48,20 @@ To run the AI chatbot application locally, follow these steps:
 
 5. **Create `secrets.toml` File:**
    Create a file named `secrets.toml` in the `.streamlit` directory within the repository. The contents of the file should be similar to the required configuration.
+   ```sh
+   OPENAI API KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   COGNITO DOMAIN = "xxx"
+   COGNITO CLIENT SECRET = "xxx"
+   APP URI = "https://localhost:8501/
+   ```
 
-6. **Run the App:**
+7. **Run the App:**
    Run the following command to start the application:
    ```sh
    streamlit run chat-with-pdf.py
    ```
 
-7. **Access the App:**
+8. **Access the App:**
    The app will be up and running on port number 8501 at [https://localhost:8501/](https://localhost:8501/).
 
 Enjoy interacting with the AI chatbot locally!
