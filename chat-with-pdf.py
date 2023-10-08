@@ -248,8 +248,8 @@ if  (st.session_state["authenticated"]):
         tpath=os.path.join(tdir.name,'file.pdf') 
         with open(tpath,'wb') as f:
             f.write(upload.getbuffer()) # Writes the uploaded file to the temporary directory
-        st.sidebar.write("Uploaded")
-        st.sidebar.write("Now I will learn from it") # Message to be displayed after the file is uploaded
+        st.sidebar.write("Uploaded successfully")
+        # Message to be displayed after the file is uploaded
     
     
     # os.environ['OPENAI_API_KEY']
