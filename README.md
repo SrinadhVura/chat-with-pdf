@@ -49,9 +49,10 @@ To run the AI chatbot application locally, follow these steps:
 5. **Create `secrets.toml` File:**
    Create a file named `secrets.toml` in the `.streamlit` directory within the repository. The contents of the file should be similar to the required configuration.
    ```sh
-   OPENAI API KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxx"
-   COGNITO DOMAIN = "xxx"
-   COGNITO CLIENT SECRET = "xxx"
+   OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   COGNITO_DOMAIN = "xxx"
+   CLIENT_ID = "xxx"
+   CLIENT_SECRET = "xxx"
    APP URI = "https://localhost:8501/
    ```
 
