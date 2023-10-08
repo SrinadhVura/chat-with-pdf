@@ -16,12 +16,46 @@ Welcome to the repository for our cutting-edge project leveraging OpenAI's GPT-3
 
 - **Dynamic and Adaptive AI Bot**: Learn about the culmination of our components resulting in a dynamic, adaptive AI bot, custom-built in real-time to respond specifically to a user's query based on the content of the uploaded PDF.
 
-## Repository Contents:
 
-- **Architecture Details**: Delve into comprehensive insights on the architectural design, methodologies, and implementation strategies that underpin this innovative web application.
-
-- **Challenges and Solutions**: Discover the challenges faced during the project's development and the creative solutions employed to overcome them, ensuring the successful realization of our objectives.
-
-- **Future Prospects and Roadmap**: Gain knowledge about the future prospects and roadmap for this project, highlighting potential enhancements, expansions, and advancements on the horizon.
 
 Join us in exploring this repository to uncover the innovations, strategies, and technologies that drive our vision of enhancing information extraction from PDF documents using state-of-the-art AI capabilities and the powerful FAISS vector database by Meta.
+
+---
+# Running the App Locally:
+
+To run the AI chatbot application locally, follow these steps:
+
+1. **Download the Repository:**
+   Visit the GitHub repository at [https://github.com/Digiotai2025/chat-with-pdf](https://github.com/Digiotai2025/chat-with-pdf) and download it as a zip file. Extract the contents of the zip file to a directory of your choice.
+
+2. **Clone the Repository (Alternative):**
+   Alternatively, you can use the GitHub CLI to clone the repository. Run the following command in your command line interface (CLI):
+   ```sh
+   gh repo clone Digiotai2025/chat-with-pdf
+   ```
+
+3. **Navigate to Repository Directory:**
+   Navigate to the downloaded or cloned repository's directory using the CLI:
+   ```sh
+   cd chat-with-pdf
+   ```
+
+4. **Install Python Dependencies:**
+   Run the following command to install the necessary Python dependencies from the `requirements.txt` file:
+   ```sh
+   python -m pip install -r requirements.txt
+   ```
+
+5. **Create `secrets.toml` File:**
+   Create a file named `secrets.toml` in the `.streamlit` directory within the repository. The contents of the file should be similar to the required configuration.
+
+6. **Run the App:**
+   Run the following command to start the application:
+   ```sh
+   streamlit run chat-with-pdf.py
+   ```
+
+7. **Access the App:**
+   The app will be up and running on port number 8501 at [https://localhost:8501/](https://localhost:8501/).
+
+Enjoy interacting with the AI chatbot locally!
